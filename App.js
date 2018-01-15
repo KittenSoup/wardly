@@ -10,17 +10,25 @@ export default class App extends React.Component {
 
   onPress = () => {
     this.setState({
-      count: this.state.count+1
+      count: this.state.count+1,
     })
   }
 
   render() {
+
+    function playerCounter(props) {
+      const playerCounter = props.playerCounter;
+      if (playerCounter > 5){
+      playerCounter == 5}
+      else {playerCounter = this.state.count}
+    }
+
     return (
-      //TEST 1213
+      //TEST LIVE VIEW
       <BackgroundImage>
         <View style={styles.buttonContainer}>
           <View style={styles.countContainer}>
-          <Text style={styles.countText}> {this.state.count} / 5 players </Text>
+          <Text style={styles.countText}> {playerCounter} / 5 players </Text>
           </View>
           <TouchableHighlight style={styles.buttonBlue} onPress={this.onPress}>
           <Text style={styles.whiteText}> +1 CS:GO </Text>
