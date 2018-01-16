@@ -1,9 +1,22 @@
 import React from 'react';
 import {Alert, Button, Dimensions, Image, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
 import BackgroundImage from './common/BackgroundImage/';
-import PlayerCounter from './common/PlayerCounter/';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {count: 0}
+  }
+
+  onPress = () => {
+    this.setState({
+      count: this.state.count+1,
+    })
+  }
+
+  countPlayersMax(count) {
+    return count > 5 ? 5 : count
+  }
 
   render() {
     return (
