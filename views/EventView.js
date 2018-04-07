@@ -3,6 +3,9 @@ import { View, Text, StyleSheet } from 'react-native'
 import CustomDatePicker from '../common/CustomDatePicker'
 import BackgroundImage from '../common/BackgroundImage'
 import { getEvents } from '../services/dataHandler'
+import SignUpAnimation from '../animations/SignUpAnimation'
+import SignedUpAnimation from '../animations/SignedUpAnimation'
+import NotSignedUpAnimation from '../animations/NotSignedUpAnimation'
 
 export default class EventView extends React.Component {
 
@@ -12,9 +15,20 @@ export default class EventView extends React.Component {
             events: getEvents()
         }
     }
-    //Kan tas bort nu
-    autoCapitalize(text) {
-        return text.slice(0,1).toUpperCase() + text.slice(1, text.length)
+
+    isPlayerInList = (players) => {
+        return players.indexOf(this.props.name) > -1
+    }
+
+    getSignedUpIcon = (players) => {
+        if(this.isPlayerInList(players)){
+            return (
+                <SignedUpAnimation />
+            )
+        }
+        return (
+            <NotSignedUpAnimation />
+        )
     }
 
     timeFormatter(date) {
@@ -57,6 +71,7 @@ export default class EventView extends React.Component {
                     return (
                     <View style={styles.eventContainer}
                     key={event.id}>
+                        {this.getSignedUpIcon(event.currentPlayers)}
                         <Text style={styles.blackText}>
                         {this.timeFormatter(event.startTime)}
                         </Text>
@@ -68,8 +83,7 @@ export default class EventView extends React.Component {
                 })}
                 </View>
             </BackgroundImage>
-        )
-    }
+        )    }
 }
 
 // <CustomDatePicker />
