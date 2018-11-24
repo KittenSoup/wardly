@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
-        marginBottom: '5%',
+        marginBottom: 10,
         backgroundColor: 'rgba(92, 200, 255, 0.75)',
         padding: 10,
     },

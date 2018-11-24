@@ -49,7 +49,7 @@ export default class App extends React.Component {
       <Swiper ref='swiper'
         loop={false}
         showsPagination={false}
-        index={1}>
+        index={0}>
         <EventView />
         {this.showLoginView()}
         <SettingsView 
