@@ -19,8 +19,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "react": "^16.0.0-beta.5",
-    "react-native": "^0.49.5",
+    "react": "^16.6.1",
+    "react-native": "^0.57.5",
     "react-native-datepicker": "^1.6.0",
     "react-native-popup-dialog": "^0.10.46"
   }
