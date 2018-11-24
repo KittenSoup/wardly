@@ -94,6 +94,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+<<<<<<< ours
     compileSdkVersion 26
     buildToolsVersion "23.0.1"
 
@@ -101,6 +102,15 @@ android {
         applicationId "com.wardly"
         minSdkVersion 16
         targetSdkVersion 26
+=======
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.wardly"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+>>>>>>> theirs
         versionCode 1
         versionName "1.0"
         ndk {
@@ -137,9 +147,15 @@ android {
 }
 
 dependencies {
+<<<<<<< ours
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:26.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
+=======
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+>>>>>>> theirs
 }
 
 // Run this once to be able to run the application with BUCK
